@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+// Import all of Bootstrap's CSS
+@import "styles/buttons";
+@import "styles/navbar";
+
+@import "bootstrap/scss/bootstrap";
+@import 'ngx-toastr/toastr-bs5-alert';
+@import 'bootstrap-icons/font/bootstrap-icons.css';

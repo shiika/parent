@@ -1,0 +1,33 @@
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" 
+                               id="email" 
+                               formControlName="email" 
+                               class="form-control" 
+                               placeholder="Enter your email...">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" 
+                               id="password" 
+                               formControlName="password" 
+                               class="form-control" 
+                               placeholder="Enter your password...">
+                    </div>
+                    <button type="submit" 
+                            class="btn btn-primary" 
+                            [disabled]="!loginForm.valid || isLoading()">
+                        <span *ngIf="!isLoading()">Login</span>
+                        <span *ngIf="isLoading()" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span *ngIf="isLoading()" class="ms-2">Loading...</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

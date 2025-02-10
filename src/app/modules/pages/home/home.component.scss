@@ -1,0 +1,17 @@
+.home {
+    padding: 5rem;
+    &__text {
+
+        h1 {
+            font-size: 67px;
+        }
+    }
+
+    &__action {
+        background-color: #feb633;
+        border-color: #feb633;
+        font-size: 1.25rem;
+        padding: 1rem 5rem;
+        margin-top: 50px;
+    }
+}

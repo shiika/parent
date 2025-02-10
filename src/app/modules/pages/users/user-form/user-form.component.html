@@ -1,0 +1,46 @@
+<div class="user-form">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">
+                            {{ !!user() ? 'Edit User' : 'Add New User' }}
+                        </h2>
+                        <form [formGroup]="userForm" (ngSubmit)="submit()">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="name" 
+                                    formControlName="name"
+                                    [class.is-invalid]="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+                                >
+                                <div class="invalid-feedback" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+                                    Name is required
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="job" class="form-label">Job</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="job" 
+                                    formControlName="job"
+                                    [class.is-invalid]="userForm.get('job')?.invalid && userForm.get('job')?.touched"
+                                >
+                                <div class="invalid-feedback" *ngIf="userForm.get('job')?.invalid && userForm.get('job')?.touched">
+                                    Job is required
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" [disabled]="userForm.invalid">
+                                {{ !!user() ? 'Update' : 'Add' }} User
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

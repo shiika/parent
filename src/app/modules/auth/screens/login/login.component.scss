@@ -1,0 +1,19 @@
+.login {
+    padding-top: 4rem;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 45%;
+    }
+}
+
+.spinner-border {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.2em;
+}
+
+button {
+  min-width: 100px;
+}

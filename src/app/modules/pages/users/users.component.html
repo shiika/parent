@@ -1,0 +1,55 @@
+<section class="users">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 myPosts__header d-flex justify-content-between align-items-center my-5">
+                <h1 class="text-capitalize font-weight-bold">
+                    Users
+                </h1>
+                <button class="btn btn-primary" (click)="editingUser.set(null); showAddUserForm()">Add User</button>
+            </div>
+            @if (isShowingForm()) {
+                <div class="col-12 mb-4">
+                    <app-user-form (onSubmit)="submitUser($event)" [user]="editingUser()"></app-user-form>
+                </div>
+            }
+            <div class="col-12">
+                <div class="row">
+                    @for (user of users(); track $index) {
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{ user.email }}</h6>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-sm btn-outline-primary me-2" (click)="isShowingForm.set(false); editUser(user)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" (click)="deleteUser(user.id)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                @if (hasMorePages() || isLoading()) {
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary load-more" (click)="loadMore()">
+                            @if (!isLoading()) {
+                                <span>Load more</span>
+                            } @else {
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            }
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
